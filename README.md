@@ -5,7 +5,7 @@
 ## Features
 
 - **Minimal Setup**: Requires just a single backbone file (e.g., `qwen.py` or `ollamas.py`) for OCR execution, making it lightweight and easy to use.
-- **Broad Vision LLM Support**: Integrates with vision LLMs like `Qwen`, `Llama`, `Phi`, and various VLLMAs included in the `Ollama` package.
+- **Broad Vision LLM Support**: Integrates with vision LLMs like `Qwen`, `Llama`, `Phi`, and various VLLMs included in the `Ollama` package.
 - **Customizable Prompts**: Fine-tune OCR output using either a custom or default prompt.
 - **Automated Preprocessing**: Image denoising, resizing, and PDF-to-image conversion.
 - **Postprocessing & Export**: Supports merging pages and multiple export formats (`plain`, `markdown`, `docx`, `pdf`).
@@ -102,7 +102,9 @@ The `Config` class centralizes OCR settings. Key parameters:
 
 ### 3. Postprocessing
 
-- Formats and merges extracted text in specified format. Converts it into specified export formats (e.g., Markdown, PDF) and saves it if configured.
+- Formats and merges extracted text in specified format.
+- Converts it into specified export formats (e.g., Markdown, PDF).
+- Saves results if configured.
 
 ---
 
@@ -116,8 +118,11 @@ Enable logging by setting `verbose=True` in the `Config` object. Logs provide in
 
 bOCR uses a `pyproject.toml` for managing dependencies instead of `requirements.txt`. Ensure you have `pip>=21.1` to install directly from `pyproject.toml`.
 
-Additionally, `poppler` is required for PDF processing. Install it using:
+### Required External Dependencies
 
+Additionally, `poppler` is required for PDF processing, and `pandoc` is required for DOCX and PDF export.
+
+#### **Poppler (Required for PDF Processing)**
 - **Ubuntu/Debian**:
   ```bash
   sudo apt install poppler-utils
@@ -126,6 +131,22 @@ Additionally, `poppler` is required for PDF processing. Install it using:
   ```bash
   brew install poppler
   ```
+- **Windows**:
+  1. Download the latest Poppler binaries from [https://github.com/oschwartz10612/poppler-windows/releases](https://github.com/oschwartz10612/poppler-windows/releases).
+  2. Extract and place the `bin/` directory path in your system `PATH` environment variable.
+
+#### **Pandoc (Required for DOCX, PDF Export)**
+- **Ubuntu/Debian**:
+  ```bash
+  sudo apt install pandoc
+  ```
+- **macOS** (via Homebrew):
+  ```bash
+  brew install pandoc
+  ```
+- **Windows**:
+  1. Download the installer from [https://pandoc.org/installing.html](https://pandoc.org/installing.html).
+  2. Run the installer and ensure Pandoc is added to your system `PATH`.
 
 ---
 
