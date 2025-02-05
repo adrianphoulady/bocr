@@ -30,6 +30,25 @@ cd bocr
 pip install .
 ```
 
+### Required Dependencies
+
+For **PDF and document processing**, `poppler`, `pandoc`, and LaTeX are required. You can install them as follows:
+
+#### Linux (Debian/Ubuntu)
+```bash
+sudo apt install poppler-utils pandoc texlive-xetex texlive-fonts-recommended lmodern
+```
+
+#### macOS (using Homebrew)
+```bash
+brew install poppler pandoc --cask mactex-no-gui
+```
+
+#### Windows (using Chocolatey)
+```powershell
+choco install poppler pandoc miktex
+```
+
 ---
 
 ## Quick Start
@@ -114,42 +133,6 @@ Enable logging by setting `verbose=True` in the `Config` object. Logs provide in
 
 ---
 
-## Dependencies
-
-bOCR uses a `pyproject.toml` for managing dependencies instead of `requirements.txt`. Ensure you have `pip>=21.1` to install directly from `pyproject.toml`.
-
-### Required External Dependencies
-
-Additionally, `poppler` is required for PDF processing, and `pandoc` is required for DOCX and PDF export.
-
-#### **Poppler (Required for PDF Processing)**
-- **Ubuntu/Debian**:
-  ```bash
-  sudo apt install poppler-utils
-  ```
-- **macOS** (via Homebrew):
-  ```bash
-  brew install poppler
-  ```
-- **Windows**:
-  1. Download the latest Poppler binaries from [https://github.com/oschwartz10612/poppler-windows/releases](https://github.com/oschwartz10612/poppler-windows/releases).
-  2. Extract and place the `bin/` directory path in your system `PATH` environment variable.
-
-#### **Pandoc (Required for DOCX, PDF Export)**
-- **Ubuntu/Debian**:
-  ```bash
-  sudo apt install pandoc
-  ```
-- **macOS** (via Homebrew):
-  ```bash
-  brew install pandoc
-  ```
-- **Windows**:
-  1. Download the installer from [https://pandoc.org/installing.html](https://pandoc.org/installing.html).
-  2. Run the installer and ensure Pandoc is added to your system `PATH`.
-
----
-
 ## Supported Models
 
 bOCR supports Vision LLMs such as:
@@ -171,4 +154,3 @@ Additional models can be supported by implementing a new backbone in `bocr/backb
 ## License
 
 This project is licensed under the MIT License.
-

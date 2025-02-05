@@ -21,7 +21,7 @@ The examples used in this repository are publicly available materials provided f
 To run OCR on the sample files, use the following command-line examples:
 
 ```bash
-bocr examples/sample1.jpg --save-outputs --export-format txt --verbose
+bocr sample1.jpg --save-outputs --export-format docx --verbose
 ```
 
 Alternatively, you can run OCR in Python:
@@ -30,7 +30,7 @@ Alternatively, you can run OCR in Python:
 from bocr import Config, ocr
 
 config = Config(model_id="Qwen/Qwen2-VL-7B-Instruct", export_results=True, export_format="pdf", verbose=True)
-files = ["examples/sample1.jpg", "examples/sample2.pdf"]
+files = ["sample1.jpg", "sample2.pdf"]
 ocr(files, config)
 ```
 
