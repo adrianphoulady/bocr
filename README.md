@@ -1,6 +1,6 @@
-# bOCR: Advanced OCR Framework with Vision LLMs
+# bOCR: OCR Framework with Vision LLMs
 
-**bOCR** is a high-performance Optical Character Recognition (OCR) framework that uses Vision Large Language Models (VLLMs) for accurate text extraction and document processing. Designed for efficiency and modularity, it simplifies OCR workflows with minimal setup.
+**bOCR** is an Optical Character Recognition (OCR) framework that uses Vision Large Language Models (VLLMs) for text extraction and document processing.
 
 ## Features
 
@@ -32,21 +32,21 @@ pip install .
 
 ### Required Dependencies
 
-For **PDF and document processing**, `poppler`, `pandoc`, and LaTeX are required. You can install them as follows:
+`git` is required to install `transformers` from source, as bOCR relies on `Qwen2.5-VL` models, which may require a more recent version than available on PyPI. For PDF and document processing, `poppler`, `pandoc`, and LaTeX are also required. You can install them as follows:
 
 #### Linux (Debian/Ubuntu)
 ```bash
-sudo apt install poppler-utils pandoc texlive-xetex texlive-fonts-recommended lmodern
+sudo apt install git poppler-utils pandoc texlive-xetex texlive-fonts-recommended lmodern
 ```
 
 #### macOS (using Homebrew)
 ```bash
-brew install poppler pandoc --cask mactex-no-gui
+brew install git poppler pandoc --cask mactex-no-gui
 ```
 
 #### Windows (using Chocolatey)
 ```powershell
-choco install poppler pandoc miktex
+choco install git poppler pandoc miktex
 ```
 
 ---
@@ -137,6 +137,9 @@ Enable logging by setting `verbose=True` in the `Config` object. Logs provide in
 
 bOCR supports Vision LLMs such as:
 
+- `Qwen/Qwen2.5-VL-3B-Instruct`
+- `Qwen/Qwen2.5-VL-7B-Instruct`
+- `Qwen/Qwen2.5-VL-72B-Instruct`
 - `Qwen/Qwen2-VL-2B-Instruct`
 - `Qwen/Qwen2-VL-7B-Instruct`
 - `Qwen/Qwen2-VL-72B-Instruct`

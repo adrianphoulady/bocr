@@ -1,7 +1,7 @@
 import logging
 from typing import Optional
 
-from transformers import AutoProcessor, Qwen2VLForConditionalGeneration
+from transformers import AutoProcessor, Qwen2VLForConditionalGeneration, Qwen2_5_VLForConditionalGeneration
 from qwen_vl_utils import process_vision_info
 
 logger = logging.getLogger(__name__)
@@ -17,7 +17,7 @@ exactly as in the image, without omissions. Replace unreadable or partially obsc
 def extract_text(
     image_path: str,
     prompt: Optional[str] = None,
-    model_id: str = "Qwen/Qwen2-VL-7B-Instruct",
+    model_id: str = "Qwen/Qwen2.5-VL-3B-Instruct",
     max_new_tokens: int = 1024,
 ) -> str:
     """
@@ -35,7 +35,10 @@ def extract_text(
     logger.debug(f"Starting OCR with Qwen backbone `{model_id}`.")
 
     # Load the model and processor
-    model = Qwen2VLForConditionalGeneration.from_pretrained(model_id, torch_dtype="auto", device_map="auto")
+    if model_id.startswith("Qwen/Qwen2-VL"):
+        model = Qwen2VLForConditionalGeneration.from_pretrained(model_id, torch_dtype="auto", device_map="auto")
+    else:
+        model = Qwen2_5_VLForConditionalGeneration.from_pretrained(model_id, torch_dtype="auto", device_map="auto")
     processor = AutoProcessor.from_pretrained(model_id)
 
     # Prepare input messages
