@@ -32,21 +32,21 @@ pip install .
 
 ### Required Dependencies
 
-`git` is required to install `transformers` from source, as bOCR relies on `Qwen2.5-VL` models, which may require a more recent version than available on PyPI. For PDF and document processing, `poppler`, `pandoc`, and LaTeX are also required. You can install them as follows:
+For PDF and document processing, `poppler`, `pandoc`, and LaTeX are also required. You can install them as follows:
 
 #### Linux (Debian/Ubuntu)
 ```bash
-sudo apt install git poppler-utils pandoc texlive-xetex texlive-fonts-recommended lmodern
+sudo apt install poppler-utils pandoc texlive-xetex texlive-fonts-recommended lmodern
 ```
 
 #### macOS (using Homebrew)
 ```bash
-brew install git poppler pandoc --cask mactex-no-gui
+brew install poppler pandoc --cask mactex-no-gui
 ```
 
 #### Windows (using Chocolatey)
 ```powershell
-choco install git poppler pandoc miktex
+choco install poppler pandoc miktex
 ```
 
 ---

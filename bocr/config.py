@@ -22,7 +22,7 @@ class Config:
     def __init__(
         self,
         prompt: Optional[str] = None,
-        model_id: str = "Qwen/Qwen2-VL-7B-Instruct",
+        model_id: str = "Qwen/Qwen2.5-VL-3B-Instruct",
         max_new_tokens: int = 1024,
         preprocess: bool = False,
         resolution: int = 150,
